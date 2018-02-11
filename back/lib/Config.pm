@@ -94,8 +94,6 @@ sub get_page_data {
 	$db -> {AutoCommit} = 0;
 	
 	sql_do (q {SELECT set_config ('elu_dia_w2ui_template.id_user', ?, true)}, $_USER -> {id}) if $_USER -> {id};
-
-	my $id_contract_event = create_contract_event ();
 			
 	my $data = call_for_role ($sub_name);
 		

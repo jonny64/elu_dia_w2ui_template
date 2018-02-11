@@ -6,10 +6,10 @@ columns => {
 
 	id_role            => '(roles)=2',           # Роль
 	login              => 'string',              # login
-#	mail               => 'string',              # E-mail
+	mail               => 'string',              # E-mail
 	password           => 'string',              # Пароль
 	salt               => 'string',              # "Соль" пароля
-#	is_read_only       => 'checkbox',            # Без права редактирования
+	is_read_only       => 'checkbox',            # Без права редактирования
 	
 },
 
