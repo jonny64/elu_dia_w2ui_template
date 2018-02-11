@@ -1,0 +1,6 @@
+[submodule "front/root/_/libs/elu"]
+	path = front/root/_/libs/elu
+	url = https://github.com/do-/elu.js.git
+[submodule "front/root/_/libs/elu_w2ui"]
+	path = front/root/_/libs/elu_w2ui
+	url = https://github.com/do-/elu_w2ui.git
