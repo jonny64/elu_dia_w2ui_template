@@ -11,8 +11,7 @@ define ([], function () {
             show: {
                 toolbar: true,
                 footer: true,
-                toolbarAdd      : true,
-                skipRecords: false,
+                toolbarAdd: true,
             },            
 
             columns: [                
@@ -24,9 +23,7 @@ define ([], function () {
                         
             url: '_back/?type=users',
             
-            onAdd: function (e) { use.block ('users_new') },
-            
-            onDblClick: draw_item,
+            onAdd: function (e) {use.block ('users_new')},
 
         }).refresh ();
         

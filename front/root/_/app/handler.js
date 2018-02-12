@@ -157,14 +157,6 @@ function __d (data) {
 
 }
 
-function draw_item (e) {
-
-    var uri = '/' + $_REQUEST.type + '/' + this.get (e.recid).uuid
-    
-    openTab (uri, uri)
-
-}
-
 function refreshButtons (e) {e.done (
                 
     function () {
