@@ -5,9 +5,7 @@ define ([], function () {
     $_F5 = function (data) {
 
         __d (data)
-        
-        data.is_editable = data.__read_only && !data.is_alien
-        
+                
         w2ui ['form'].record = data
                  
         fill ($butt, data, $('.w2ui-buttons'))
@@ -23,19 +21,17 @@ define ([], function () {
         $('body').data ('data', data)
     
         $butt = $('.w2ui-buttons > span', view)
-    
-        if (data.fake <= 0) data.__read_only = true
-    
+        
         __d (data)
 
-        $('title').text (data.label || 'Новый пользователь')
+        $('title').text (data.label)
         
         var layout = $('main').w2layout ({
 
             name: 'main',
 
             panels: [
-                { type: 'top', size: 350},
+                { type: 'top', size: 230},
                 { type: 'main', size: 400,
 
                     tabs: {
@@ -71,7 +67,7 @@ define ([], function () {
                     { name: 'label', type: 'text', required: true},
                     { name: 'login', type: 'text', required: true},
                     { name: 'mail',  type: 'text'},
-                    { name: 'is_read_only', type: 'checkbox'},
+//                    { name: 'is_read_only', type: 'checkbox'},
                 ],            
                 
                 onRefresh: refreshButtons

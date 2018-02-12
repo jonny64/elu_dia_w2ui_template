@@ -4,7 +4,7 @@ define ([], function () {
     
         query ({type: 'roles'}, {}, function (data) {
         
-            data.roles = dia2w2uiVoc (data.roles)
+            add_vocabularies (data, {roles: 1})
             
             $('body').data ('data', data)
             

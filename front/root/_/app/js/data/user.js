@@ -73,6 +73,8 @@ define ([], function () {
         
             data.active_tab = localStorage.getItem ('user.active_tab') || 'user_options'
             
+            data.__read_only = true
+            
             done (data)
 
         })

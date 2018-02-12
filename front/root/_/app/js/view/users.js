@@ -16,14 +16,17 @@ define ([], function () {
             },            
 
             columns: [                
-                {field: 'label', caption: 'ФИО',    size: 100, sortable: true},
-                {field: 'login', caption: 'Login',  size: 50,  sortable: true},
-                {field: 'mail' , caption: 'E-mail', size: 50,  sortable: true},
+                {field: 'label',   caption: 'ФИО',    size: 100, sortable: true},
+                {field: 'login',   caption: 'Login',  size: 50,  sortable: true},
+                {field: 'id_role', caption: 'Роль',   size: 50,  render: function (i) {return data.roles [i.id_role]}},
+                {field: 'mail',    caption: 'E-mail', size: 50,  sortable: true},
             ],
                         
             url: '_back/?type=users',
             
             onAdd: function (e) { use.block ('users_new') },
+            
+            onDblClick: draw_item,
 
         }).refresh ();
         

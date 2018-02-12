@@ -107,9 +107,17 @@ sub do_set_password_users {
 
 sub do_create_users {
 
-	my $d = $_REQUEST {data};
+	my $d = {fake => 0};
 	
-	$d -> {fake} = $_REQUEST {sid};
+	$d -> {$_} = $_REQUEST {data} {$_} foreach qw (login label id_role);
+
+	$d -> {id_role} or die '#id_role#: Не указана роль';
+	
+	$d -> {label} =~ /^[А-ЯЁ][А-ЯЁа-яё\- ]+[а-яё]$/ or die '#label#: Проверьте, пожалуйста, правильность заполнения ФИО';
+
+	$d -> {login} =~ /^[A-Za-z0-9_\.]+$/ or die '#login#: Недопустимый login';
+
+	sql_select_scalar ('SELECT id FROM users WHERE fake = 0 AND login = ?', $d -> {login}) and die '#login#: Этот login уже занят';
 
 	sql (users => sql_do_insert (users => $d));
 
@@ -119,28 +127,15 @@ sub do_create_users {
 
 sub do_update_users {
 
-	my $data = sql (users => [
-		[fake  => [0, $_REQUEST {sid}]],
-		[uuid  => $_REQUEST {id}],
-		[LIMIT => 1],
-	]);
-
-	my $d = $_REQUEST {data};
-
-	$d -> {id} = $data -> {id};
-	$d -> {fake} = 0;
+	my $d = {}; $d -> {$_} = $_REQUEST {data} {$_} foreach qw (login label mail);
 
 	$d -> {label} =~ /^[А-ЯЁ][А-ЯЁа-яё\- ]+[а-яё]$/ or die '#label#: Проверьте, пожалуйста, правильность заполнения ФИО';
-	
+
 	$d -> {login} =~ /^[A-Za-z0-9_\.]+$/ or die '#login#: Недопустимый login';
-	
-	$d -> {$_} ||= undef foreach qw (mail);
 
 	sql_select_scalar ('SELECT id FROM users WHERE fake = 0 AND login = ? AND id <> ?', $d -> {login}, $data -> {id}) and die '#login#: Этот login уже занят';
-	
-	sql_do_update (users => $d);
 
-	sql (users => $data -> {id});
+	sql_do_update (users => $d, get_id ());
 
 }
 
