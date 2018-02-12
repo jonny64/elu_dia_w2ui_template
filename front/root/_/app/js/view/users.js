@@ -22,7 +22,7 @@ define ([], function () {
             ],
                         
             url: '_back/?type=users',
-            
+
             onAdd: function (e) {use.block ('users_new')},
 
         }).refresh ();
