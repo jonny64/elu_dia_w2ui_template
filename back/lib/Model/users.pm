@@ -2,7 +2,7 @@ label => 'Пользователи',
 
 columns => {
 
-	uuid               => 'uuid=uuid_generate_v4()',
+#	uuid               => 'uuid=uuid_generate_v4()',
 
 	id_role            => '(roles)=2',           # Роль
 	login              => 'string',              # login
@@ -14,7 +14,7 @@ columns => {
 },
 
 keys => {
-	uuid               => 'uuid',                
+#	uuid               => 'uuid',                
 },
 
 data => [

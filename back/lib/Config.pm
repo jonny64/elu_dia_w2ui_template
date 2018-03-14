@@ -10,7 +10,7 @@ our $conf = {
 	
 	portion => 2,
 		
-	sql_features => ['idx.partial'],
+#	sql_features => ['idx.partial'],
 		
 };
 
@@ -93,7 +93,7 @@ sub get_page_data {
 	
 	$db -> {AutoCommit} = 0;
 	
-	sql_do (q {SELECT set_config ('elu_dia_w2ui_template.id_user', ?, true)}, $_USER -> {id}) if $_USER -> {id};
+#	sql_do (q {SELECT set_config ('elu_dia_w2ui_template.id_user', ?, true)}, $_USER -> {id}) if $_USER -> {id};
 			
 	my $data = call_for_role ($sub_name);
 		
