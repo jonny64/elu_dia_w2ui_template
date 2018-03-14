@@ -28,7 +28,7 @@ sub password_hash {
 
 	$sha -> add (Encode::encode ('UTF-8', $password));
 	
-	my $result = $sha -> hexdigest;
+	my $result = uc $sha -> hexdigest;
 
 	return $result;
 
