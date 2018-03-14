@@ -7,5 +7,5 @@ columns => {
 },
 
 keys => {
-	id_user    => 'id_user,id_voc_user_option',
+	id_user    => 'id_user,id_voc_user_option!',
 },

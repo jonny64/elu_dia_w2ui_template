@@ -10,7 +10,7 @@ our $conf = {
 	
 	portion => 2,
 		
-#	sql_features => ['idx.partial'],
+	sql_features => ['idx.partial'],
 		
 };
 
