@@ -13,9 +13,7 @@ define ([], function () {
             if (!data || !data.user) return alert ('Ошибка аутентификации')
 
             $_SESSION.start (data.user, data.timeout)
-            
-            localStorage.setItem ('id_voc_user_domain', param.id_voc_user_domain)
-            
+                        
             location.reload ()
 
         })

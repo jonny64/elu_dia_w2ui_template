@@ -54,7 +54,7 @@ sub do_create_sessions {
 
 	start_session ($_USER -> {id});
 
-	set_cookie (-name => 'user', -value => "$_USER->{id_voc_user_domain}.$_USER->{ext_id}", -httponly => 1, -path => '/_back');
+	set_cookie (-name => 'user', -value => "$_USER->{uuid}", -httponly => 1, -path => '/_back');
 
        	$data;
 
