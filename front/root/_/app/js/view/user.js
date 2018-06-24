@@ -1,28 +1,20 @@
 define ([], function () {
-
-    var $butt
         
     $_F5 = function (data) {
-
-        __d (data)
+    
+        var f = w2ui ['form']
                 
-        w2ui ['form'].record = data
-                 
-        fill ($butt, data, $('.w2ui-buttons'))
+        f.record = data
 
         $('main input').prop ({disabled: data.__read_only})
-        
-        w2ui ['form'].refresh ()
+
+        f.refresh ()
 
     }
         
     return function (data, view) {
-    
+
         $('body').data ('data', data)
-    
-        $butt = $('.w2ui-buttons > span', view)
-        
-        __d (data)
 
         $('title').text (data.label)
         
@@ -52,13 +44,13 @@ define ([], function () {
             }
             
             
-        });
+        })
 
         var $panel = $(layout.el ('top'))
         
         fill (view, data, $panel)
                 
-        var $form = $panel.w2form ({ 
+        $panel.w2reform ({ 
 
                 name   : 'form',
                 
@@ -68,9 +60,7 @@ define ([], function () {
                     { name: 'login', type: 'text', required: true},
                     { name: 'mail',  type: 'text'},
 //                    { name: 'is_read_only', type: 'checkbox'},
-                ],            
-                
-                onRefresh: refreshButtons
+                ]
 
         })
                         
@@ -78,4 +68,4 @@ define ([], function () {
 
     }
 
-});
+})
