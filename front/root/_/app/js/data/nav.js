@@ -18,7 +18,7 @@ define ([], function () {
     }
 /*
     $_DO.open_help_nav = function () {
-        openTab ('https://fkr.eiasmo.ru/docs/')
+        openTab ('https://.../docs/')
     }
 */
     $_DO.logout_nav = function () {
@@ -33,13 +33,15 @@ define ([], function () {
 
     return function (done) {
     
+        var is_admin = ($_USER.role == 'admin')
+    
         var data = {_can: {
             open_widgets: true,
-            open_users: ($_USER.role == 'admin'),
-            open_user_password: ($_USER.id_voc_user_domain == 1 && $_USER.role != 'admin'),            
+            open_users: is_admin,
+            open_user_password: is_admin,
             open_settings: true,
             open_help: true,
-            logout: true            
+            logout: true
         }}
 
         done (data)
